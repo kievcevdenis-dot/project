@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вселенная Кода</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Вселенная Кода</h1>
+    <p>Исследование: от цифровых артефактов до технологий будущего</p>
+</header>
+
+<div class="container">
+    <section class="info-section">
+        <h2>Что такое языки программирования?</h2>
+        <p>Это фундамент современного мира. Сегодня существует более 9000 языков, но в реальности всё строится на базе ключевых семейств, каждое из которых решает свои задачи.</p>
+        <div class="levels">
+            <div class="level-box">
+                <h4>Низкий уровень</h4>
+                <p>Прямое управление железом (ASM, C). Сложно, но дает максимальную скорость и контроль над памятью.</p>
+            </div>
+            <div class="level-box">
+                <h4>Высокий уровень</h4>
+                <p>Ближе к человеческому языку (Python, Java). Позволяет создавать масштабные проекты быстро и эффективно.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="detailed-languages">
+        <h2>Подробный разбор инструментов</h2>
+        
+        <div class="card">
+            <div class="status active">Status: Industry Standard</div>
+            <h3>🐍 Python</h3>
+            <p><b>Особенности:</b> Лаконичный и мощный. Читается как обычный английский текст.</p>
+            <p><b>Где нужен:</b> Нейросети, Big Data, автоматизация и научные исследования.</p>
+            <p><b>Мой совет:</b> Учить обязательно. Это "швейцарский нож" для любого айтишника.</p>
+        </div>
+
+        <div class="card">
+            <div class="status active">Status: High Performance</div>
+            <h3>⚡ C++</h3>
+            <p><b>Особенности:</b> Язык-тяжеловес. Требует дисциплины и глубокого понимания работы ЭВМ.</p>
+            <p><b>Где нужен:</b> Игровые движки (Unreal Engine), робототехника, браузеры и софт для космоса.</p>
+            <p><b>Мой совет:</b> Идеально для физмат классов. После него любой другой язык покажется простым.</p>
+        </div>
+
+        <div class="card">
+            <div class="status dead">Status: Legacy / Education</div>
+            <h3>Pascal / Delphi</h3>
+            <p><b>Особенности:</b> Строгая структура, созданная специально для обучения студентов.</p>
+            <p><b>Где нужен:</b> База для понимания алгоритмов, старые банковские системы.</p>
+            <p><b>Мой совет:</b> Хорош как история, но для реальной работы лучше смотреть в сторону C++ или C#.</p>
+        </div>
+    </section>
+
+    <section class="poll-section">
+        <h2>📊 Экспертное голосование</h2>
+        <p class="poll-question">Какой язык необходим в физмат классе для комфортного старта в престижном ВУЗе?</p>
+        
+        <div class="poll-options" id="poll">
+            <div class="poll-item">
+                <button class="poll-btn" onclick="vote('cpp')">
+                    <div class="result-bar" id="bar-cpp"></div>
+                    <span class="lang-name">C++ (База инженера)</span>
+                    <span class="percent" id="percent-cpp">0%</span>
+                </button>
+            </div>
+            <div class="poll-item">
+                <button class="poll-btn" onclick="vote('py')">
+                    <div class="result-bar" id="bar-py"></div>
+                    <span class="lang-name">Python (Data Science & AI)</span>
+                    <span class="percent" id="percent-py">0%</span>
+                </button>
+            </div>
+            <div class="poll-item">
+                <button class="poll-btn" onclick="vote('other')">
+                    <div class="result-bar" id="bar-other"></div>
+                    <span class="lang-name">JavaScript / C# (Web & Apps)</span>
+                    <span class="percent" id="percent-other">0%</span>
+                </button>
+            </div>
+        </div>
+        <p id="total-votes">Голосов: 0</p>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
