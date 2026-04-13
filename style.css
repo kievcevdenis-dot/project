@@ -149,3 +149,32 @@ h1 {
 h2 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 30px; }
 h3 { font-size: 1.8rem; margin-top: 0; }
 #total-votes { margin-top: 30px; font-family: 'Orbitron', sans-serif; color: var(--accent); opacity: 0.8; }
+
+/* Специальные настройки для телефонов */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem !important; /* Принудительно уменьшаем заголовок */
+        line-height: 1.1;
+        background: linear-gradient(to right, #fff, #38bdf8); /* Сохраняем твой градиент */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    header {
+        padding: 50px 15px;
+        height: auto;
+        min-height: 30vh;
+    }
+
+    .levels {
+        flex-direction: column; /* Блоки встанут друг под друга, а не в ряд */
+    }
+
+    .container {
+        margin-top: 10px;
+    }
+
+    .card, .info-section {
+        padding: 20px; /* Немного сужаем отступы, чтобы было больше места для текста */
+    }
+}
