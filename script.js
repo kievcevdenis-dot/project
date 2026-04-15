@@ -1,64 +1,67 @@
 const API_URL = "https://poll-backend-b17o.onrender.com";
 
+// 1. ФУНКЦИЯ ОБНОВЛЕНИЯ ДАННЫХ
 async function updateUI() {
-    // 1. ПЕРВЫМ ДЕЛОМ проверяем, голосовал ли уже юзер
-    const hasVoted = localStorage.getItem('hasVoted');
-    
-    if (hasVoted === 'true') {
-        disableButtons();
-    }
-
     try {
         const res = await fetch(`${API_URL}/stats`);
         const data = await res.json();
         const stats = data.record || data;
 
+        // Считаем общее количество
         const total = Object.values(stats).reduce((a, b) => a + b, 0);
-        document.getElementById('total-votes').innerText = `Всего голосов: ${total}`;
+        
+        const totalElem = document.getElementById('total-votes');
+        if (totalElem) totalElem.innerText = `Голосов: ${total}`;
 
+        // Обновляем полоски и проценты по твоим ID
         const keys = ['py', 'cpp', 'other'];
         keys.forEach(key => {
             const val = stats[key] || 0;
             const pct = total > 0 ? Math.round((val / total) * 100) : 0;
+            
             const bar = document.getElementById(`bar-${key}`);
             const lbl = document.getElementById(`percent-${key}`);
+            
             if (bar) bar.style.width = pct + '%';
             if (lbl) lbl.innerText = pct + '%';
         });
+
+        // Если уже голосовал — выключаем кнопки
+        if (localStorage.getItem('voted') === 'true') {
+            disablePoll();
+        }
     } catch (e) {
-        console.log("Ошибка загрузки");
+        console.log("Сервер просыпается...");
     }
 }
 
-function disableButtons() {
-    const btns = document.querySelectorAll('button');
-    btns.forEach(b => {
-        b.disabled = true;
-        b.style.opacity = "0.5";
-        b.style.cursor = "not-allowed";
-        b.innerText = "Голос принят";
-    });
-}
-
+// 2. ФУНКЦИЯ ГОЛОСОВАНИЯ
 async function vote(lang) {
-    // ЗАЩИТА: Если метка стоит, функция ВООБЩЕ ничего не делает
-    if (localStorage.getItem('hasVoted') === 'true') {
-        alert("Вы уже проголосовали!");
-        return;
-    }
+    if (localStorage.getItem('voted') === 'true') return;
+
+    // Мгновенная блокировка
+    localStorage.setItem('voted', 'true');
+    disablePoll();
 
     try {
         const res = await fetch(`${API_URL}/vote/${lang}`, { method: 'POST' });
         if (res.ok) {
-            // Ставим метку ПЕРЕД обновлением страницы
-            localStorage.setItem('hasVoted', 'true');
-            alert("Спасибо! Ваш голос учтен.");
-            location.reload(); 
+            await updateUI();
         }
     } catch (e) {
-        alert("Ошибка! Проверь интернет.");
+        console.error("Ошибка при отправке голоса");
     }
 }
 
-// Запускаем всё при загрузке
+// 3. БЛОКИРОВКА КНОПОК (Твои классы .poll-btn)
+function disablePoll() {
+    const btns = document.querySelectorAll('.poll-btn');
+    btns.forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = "default";
+        // Мы не меняем прозрачность кнопки совсем в ноль, чтобы полоски было видно
+        btn.classList.add('voted'); 
+    });
+}
+
 window.onload = updateUI;
