@@ -7,12 +7,8 @@
     --bg: #030712;
     --glass: rgba(17, 24, 39, 0.7);
 }
-html {
-  user-select: none; /* Стандартный синтаксис */
-  -webkit-user-select: none; /* Для Safari */
-  -moz-user-select: none; /* Для Firefox */
-  -ms-user-select: none; /* Для Edge */
-}
+
+
 
 body {
     font-family: 'Inter', sans-serif;
@@ -45,7 +41,54 @@ h1 {
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
     animation: titleFloat 3s ease-in-out infinite, fadeIn 1.5s ease-out;
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
 }
+
+h2 {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
+h3 {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
+h4 {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
+h5 {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
+h6 {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
+p {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;   /* Edge, Internet Explorer */
+    user-select: none;         /* Стандартный синтаксис (Chrome, Opera, Firefox) */
+}
+
 
 /* 2. "Стеклянные" контейнеры с неоновой рамкой */
 .container {
