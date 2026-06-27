@@ -7,10 +7,11 @@
     --bg: #030712;
     --glass: rgba(17, 24, 39, 0.7);
 }
-
-* {
-    margin: 0;
-    padding: 0;
+html {
+  user-select: none; /* Стандартный синтаксис */
+  -webkit-user-select: none; /* Для Safari */
+  -moz-user-select: none; /* Для Firefox */
+  -ms-user-select: none; /* Для Edge */
 }
 
 body {
