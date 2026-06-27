@@ -8,6 +8,11 @@
     --glass: rgba(17, 24, 39, 0.7);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
